@@ -13,7 +13,7 @@ class Square():
     def __init__(self, size=0):
         """ Initialize instance attribute """
         self.__size = size
-        
+
         if size != int(size):
             raise TypeError("size must be an integer")
         if size < 0:
