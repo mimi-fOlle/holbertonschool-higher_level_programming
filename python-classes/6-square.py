@@ -40,7 +40,8 @@ class Square():
             if isinstance(value[0], int) and isinstance(value[1], int):
                 if value[0] >= 0 and value[1] >= 0:
                     self.__position = value
-        raise TypeError("position must be a tuple of 2 positive integers")
+        else:
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     def my_print(self):
         """ Prints in stdout the square with "#" character """
