@@ -1,0 +1,51 @@
+The ``0-add_integer`` module
+==========================
+
+Using ``add_integer``
+---------------------
+
+This is 0-add_integer text file.
+Import the function from the module:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+** Checking two ints
+	>>> add_integer(0, 0)
+	0
+
+** Checking positive and negative ints
+	>>> add_integer(5, -1)
+	4
+
+** Checking only one argument
+	>>> add_integer(7)
+	105
+
+** Checking no argument
+	>>> add_integer()
+	Traceback (most recent call last):
+        	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+
+** Checking float and int
+	>>> add_integer(10.5, 2)
+	12
+
+** Checking type
+	>>> add_integer('a', 3)
+	Traceback (most recent call last):
+    	...
+	TypeError: a must be an integer
+
+** Checking type
+	>>> add_integer(1, 'x')
+	Traceback (most recent call last):
+    	...
+	TypeError: b must be an integer
+
+** Checking type
+	>>> add_integer('ab', 'cd')
+	Traceback (most recent call last):
+    	...
+	TypeError: a must be an integer
