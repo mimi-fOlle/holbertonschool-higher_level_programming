@@ -25,8 +25,8 @@ Import the function from the module:
 	...
 	ZeroDivisionError: division by zero
 
-** Checking matrix is list
-	>>> matrix_divided(4, 2)
+** Checking matrix is integer
+	>>> matrix_divided([4, 'c'][6, 9], 2)
 	Traceback (most recent call last):
 	...
-	TypeError: 'int' object is not subscriptable
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
