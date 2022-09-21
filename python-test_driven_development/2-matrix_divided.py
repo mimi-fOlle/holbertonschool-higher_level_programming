@@ -23,7 +23,7 @@ def matrix_divided(matrix, div):
 
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    
+
     for row in matrix:
         if not isinstance(row, list):
             if not isinstance(list, (int, float)):
