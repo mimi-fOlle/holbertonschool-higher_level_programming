@@ -22,4 +22,4 @@ def add_integer(a, b=98):
     if type(a) is float('nan') or type(b) is float('nan'):
         raise ValueError("cannot convert float NaN to integer")
 
-    return int(a + b) 
+    return int(a + b)
