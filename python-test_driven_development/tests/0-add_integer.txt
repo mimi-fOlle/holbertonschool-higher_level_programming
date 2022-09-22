@@ -24,7 +24,7 @@ Import the function from the module:
 ** Checking no argument
 	>>> add_integer()
 	Traceback (most recent call last):
-        	...
+       	...
 	TypeError: add_integer() missing 1 required positional argument: 'a'
 
 
@@ -51,7 +51,7 @@ Import the function from the module:
 	TypeError: a must be an integer
 
 ** Checking float overflow
-	>>> add_integer(7, float('inf'))
+	>>> add_integer(7, 'inf')
 	Traceback (most recent call last):
 	...
 	OverflowError: cannot convert float infinity to integer 
