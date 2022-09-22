@@ -50,14 +50,14 @@ Import the function from the module:
     	...
 	TypeError: a must be an integer
 
-** Checking float overflow
-	>>> add_integer(7, 'inf')
+** Checking overflow
+	>>> add_integer(float('inf'), float('-inf'))
 	Traceback (most recent call last):
 	...
-	OverflowError: cannot convert float infinity to integer 
+	OverflowError: cannot convert float infinity to integer
 
-** Checking convertion of float to integer
-	>>> add_integer(float('nan'), 3)
+** Checking NaN float to integer
+	>>> add_integer(2, float('nan'))
 	Traceback (most recent call last):
 	...
 	ValueError: cannot convert float NaN to integer	
