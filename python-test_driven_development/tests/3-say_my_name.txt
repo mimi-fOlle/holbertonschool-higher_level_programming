@@ -13,8 +13,10 @@ Import the function from the module:
 	My name is YH Lee
 
 ** Checking with one argument
-	>>> say_my_name("YH")
-	My name is YH
+	>>> say_my_name(2,)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
 
 ** Checking with no argument
 	>>> say_my_name()
