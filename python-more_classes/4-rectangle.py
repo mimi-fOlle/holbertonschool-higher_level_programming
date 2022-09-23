@@ -4,6 +4,12 @@
 
 class Rectangle:
     """
+    A class to define a rectangle by:
+    - Private instance attribute: width
+    - Private instance attribute: height
+    - Public instance method to return the rectangle area
+    - Public instance method to return the rectangel perimeter
+    - Print the rectangle with the character #
     """
     def __init__(self, width=0, height=0):
         self.__width = width
