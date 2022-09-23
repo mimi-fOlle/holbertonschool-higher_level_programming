@@ -1,0 +1,38 @@
+The ``5-text_indentation`` module
+=================================
+
+Using ``text_indentation``
+--------------------------
+
+Import the function from the module:
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+** Checking plusieurs specific characters
+	>>> text_indentation("""I call the police, later...""")
+	I call the police, later.
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+
+** Checking with numbers
+	>>> text_indentation(476433)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+** Checking with string
+	>>> text_indentation("5767452")
+	5767452
+
+** Checking with blank
+	>>> text_indentation("""      yOp!""")
+	yOp!
+
+** Checking with plusieurs arguments
+	>>> text_indentation("Hey", "Yop")
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() takes 1 positional argument but 2 were given
