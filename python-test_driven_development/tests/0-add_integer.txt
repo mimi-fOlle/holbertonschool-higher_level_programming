@@ -55,9 +55,3 @@ Import the function from the module:
 	Traceback (most recent call last):
 	...
 	OverflowError: cannot convert float infinity to integer
-
-** Checking NaN float to integer
-	>>> add_integer(2, float('nan'))
-	Traceback (most recent call last):
-	...
-	ValueError: cannot convert float NaN to integer	
