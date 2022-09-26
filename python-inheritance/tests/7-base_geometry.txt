@@ -68,6 +68,8 @@ Import the function from the module:
 
 ** Checking boolen
 	>>> bg.integer_validator("yop", True)
+	Traceback (most recent call last):
+	TypeError: yop must be an integer
 
 ** Checking value
 	>>> bg.integer_validator("yop", {7, 8})
