@@ -1,0 +1,42 @@
+The ``7-base_geometry`` module
+==============================
+
+Using ``BaseGeometry``
+----------------------
+
+This is 7-base_geometry text file.
+Import the function from the module:
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+** Checking empty argument
+	>>> check = BaseGeometry()
+	>>> check.integer_validator()
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+** Checking name
+	>>> check.integer_validator('80', '50')
+	Traceback (most recent call last):
+		...
+	TypeError: 80 must be an integer
+
+** Checking multiple arguments
+	>>> check.integer_validator(0, 0, 0)
+	Traceback (most recent call last):
+		...
+	TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+** Checking negative number
+	>>> check.integer_validator(-8, -50)
+	Traceback (most recent call last):
+		...
+	ValueError: -8 must be greater than 0
+
+** Checking string
+	>>> check.integer_validator(yop, sunshine)
+	Traceback (most recent call last):
+		...
+	NameError: name 'yop' is not defined
+
