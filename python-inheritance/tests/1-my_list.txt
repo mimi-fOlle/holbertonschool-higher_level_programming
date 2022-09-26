@@ -48,3 +48,10 @@ Import the function from the module:
 	>>> check_list = MyList([4, 2, 33, 7])
 	>>> check_list
 	[4, 2, 33, 7]
+
+** Checking list comparition
+	>>> check_list = MyList([34, 66, 53, 52, 0])
+	>>> check_list.print_sorted()
+	[0, 34, 52, 53, 66]
+	>>> check_list
+	[34, 66, 53, 52, 0]
