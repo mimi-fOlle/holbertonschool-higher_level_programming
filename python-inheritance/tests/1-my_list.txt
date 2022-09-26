@@ -31,3 +31,20 @@ Import the function from the module:
 	>>> check_list = MyList([-2, 0, -10, 30])
 	>>> check_list.print_sorted()
 	[-10, -2, 0, 30]
+
+** Checking append()
+	>>> check_list = MyList()
+	>>> check_list.append(3)
+	>>> check_list
+	[3]
+
+** Checking __str__
+	>>> check_list = MyList([hi, me, you])
+	Traceback (most recent call last):
+		...
+	NameError: name 'hi' is not defined
+
+** Checking print_sorted() return a new list
+	>>> check_list = MyList([4, 2, 33, 7])
+	>>> check_list
+	[4, 2, 33, 7]
