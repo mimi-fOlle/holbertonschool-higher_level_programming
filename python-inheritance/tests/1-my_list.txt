@@ -1,0 +1,33 @@
+The ``1-my_list`` module
+========================
+
+Using ``my_list``
+-----------------
+
+This is 1-my_list text file.
+Import the function from the module:
+
+	>>> MyList = __import__('1-my_list').MyList
+
+** Checking if same type
+	>>> check_list = MyList()
+	>>> type(check_list) is MyList
+	True
+
+** Checking with issubclass
+	>>> issubclass(bool, MyList)
+	False
+
+** Checking with isinstance
+	>>> isinstance(check_list, list)
+	True
+
+** Checking empty list
+	>>> check_list = MyList()
+	>>> check_list.print_sorted()
+	[]
+
+** Checking list with negative numbers
+	>>> check_list = MyList([-2, 0, -10, 30])
+	>>> check_list.print_sorted()
+	[-10, -2, 0, 30]
