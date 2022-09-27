@@ -12,7 +12,7 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 def add_item(args, filename):
     my_list = []
 
-    if filename != None:
+    if filename is not None:
         my_list = load_from_json_file(filename)
 
     for i in args:
