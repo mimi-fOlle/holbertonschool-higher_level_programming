@@ -11,4 +11,4 @@ def save_to_json_file(my_obj, filename):
     """
     js_string = json.dumps(my_obj)
     with open(filename, mode='w') as a_file:
-        return (a_file.write(js_string))
+        a_file.write(js_string)
