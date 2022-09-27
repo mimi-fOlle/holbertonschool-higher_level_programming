@@ -11,9 +11,9 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 def add_item(args, filename):
     my_list = []
+    filename = ""
 
-    if filename is not "":
-        my_list = load_from_json_file(filename)
+    my_list = load_from_json_file(filename)
 
     for i in args:
         my_list.append(i)
