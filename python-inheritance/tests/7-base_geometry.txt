@@ -18,9 +18,6 @@ Import the function from the module:
 	...     print("[{}] {}".format(e.__class__.__name__, e))
 	[TypeError] name must be an integer
 
-
-	>>> BaseGeometry = __import__('6-base_geometry').BaseGeometry
-	>>> bg = BaseGeometry()
 	>>> try:
 	...     print(bg.area())
 	... except Exception as e:
