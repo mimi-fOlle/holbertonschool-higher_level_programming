@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" Module: 7-add_item """
+""" 
+    Module: 7-add_item
+    Module: 6-load_from_json_file
+    Module: 5-save_to_json_file
+"""
 
 
 import json
