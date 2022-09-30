@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """ 
     Module: 7-add_item (add all args to a Python list and save to a file)
-    Module: 6-load_from_json_file
-    Module: 5-save_to_json_file
 """
 import json
 import sys
+
 
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
