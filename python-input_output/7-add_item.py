@@ -16,3 +16,4 @@ if filename is not None:
 for args in sys.argv[1:]:
     my_list.append(args)
     save_to_json_file(my_list, "add_item.json")
+
