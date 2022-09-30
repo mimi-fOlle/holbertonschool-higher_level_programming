@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-""" 
-    Module: 7-add_item (add all args to a Python list and save to a file)
-"""
+""" Module: 7-add_item (add all args to a Python list and save to a file) """
 import json
 import sys
 
