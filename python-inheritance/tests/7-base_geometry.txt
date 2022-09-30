@@ -1,4 +1,4 @@
-The ``7-base_geometry`` module
+The ``8-base_geometry`` module
 ==============================
 
 Using ``BaseGeometry``
@@ -6,76 +6,15 @@ Using ``BaseGeometry``
 
 This is 7-base_geometry text file.
 Import the function from the module:
-
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 	>>> bg = BaseGeometry()
-
-** Checking empty argument
-	>>> bg.integer_validator()
-	Traceback (most recent call last):
-	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-** Checking name
-	>>> bg.integer_validator('80', '50')
-	Traceback (most recent call last):
-	TypeError: 80 must be an integer
-
-** Checking multiple arguments
-	>>> bg.integer_validator(0, 0, 0)
-	Traceback (most recent call last):
-	TypeError: integer_validator() takes 3 positional arguments but 4 were given
-
-** Checking negative number
-	>>> bg.integer_validator(-8, -50)
-	Traceback (most recent call last):
-	ValueError: -8 must be greater than 0
-
-** Checking string
-	>>> bg.integer_validator(yop, sunshine)
-	Traceback (most recent call last):
-	NameError: name 'yop' is not defined
-
-** Checking area()
-	>>> bg.area()
-	Traceback (most recent call last):
-	Exception: area() is not implemented
-
-** Checking normal case
-	>>> bg.integer_validator("yop", 55)
-
-** Checking value < 0
-	>>> bg.integer_validator("yop", -2)
-	Traceback (most recent call last):
-	ValueError: yop must be greater than 0
-
-** Checking value = 0
-	>>> bg.integer_validator("yop", 0)
-	Traceback (most recent call last):
-	ValueError: yop must be greater than 0
-
-** Checking empty string
-	>>> bg.integer_validator("", 10)
-
-** Checking value with tauple
-	>>> bg.integer_validator("yop", (10,))
-	Traceback (most recent call last):
-	TypeError: yop must be an integer
-
-** Checking value with list
-	>>> bg.integer_validator("yop", [4])
-	Traceback (most recent call last):
-	TypeError: yop must be an integer
-
-** Checking boolen
-	>>> bg.integer_validator("yop", True)
-
-** Checking value
-	>>> bg.integer_validator("yop", {7, 8})
-	Traceback (most recent call last):
-	TypeError: yop must be an integer
-
-** Checking if no value
-	>>> bg.integer_validator("yop", None)
-	Traceback (most recent call last):
-	TypeError: yop must be an integer
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("width", 89)
+	>>> try:
+	...     bg.integer_validator("name", "John")
+	... except Exception as e:
+	...     print("[{}] {}".format(e.__class__.__name__, e))
+	[TypeError] name must be an integer
 
