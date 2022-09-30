@@ -21,3 +21,5 @@ Import the function from the module:
 	...     bg.integer_validator("name", True)
 	... except Exception as e:
 	...     print("[{}] {}".format(e.__class__.__name__, e))
+	[TypeError] name must be an integer
+
