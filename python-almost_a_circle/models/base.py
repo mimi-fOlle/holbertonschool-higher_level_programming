@@ -36,3 +36,5 @@ class Base:
                 list_dt.append(js_dt)
             with open(filename, mode='w') as a_file:
                 json.dump(list_dt, a_file)
+        else:
+            list_objs = []
