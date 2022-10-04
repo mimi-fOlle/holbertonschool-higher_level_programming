@@ -90,3 +90,10 @@ class Rectangle(Base):
         """ Return [Rectangle] (<id>) <x>/<y> - <width>/<height> """
         return "[Rectangle] ({}) {}/{} - {}/{}".\
                format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        """ Update Rectangle attribute """
+        att = ("id", "width", "height", "x", "y")
+        if args is not None and len(args) != 0:
+            for i, j in enumerate(args):
+                setattr(self, att[i], j)
