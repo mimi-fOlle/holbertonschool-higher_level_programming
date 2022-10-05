@@ -60,9 +60,8 @@ class Base:
         """ Return a list of instances """
 
         filename = "{}.json".format(cls.__name__)
-        list_dict = []
         with open(filename, mode='r') as a_file:
-            if a_file is None:
+            if filename is None:
                 return ([])
             list_dict = cls.from_json_string(a_file.read())
 
