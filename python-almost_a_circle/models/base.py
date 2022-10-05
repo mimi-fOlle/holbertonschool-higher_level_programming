@@ -60,13 +60,14 @@ class Base:
         """ Return a list of instances """
 
         filename = "{}.json".format(cls.__name__)
-        if filename is None:
-            return ([])
-        with open(filename, mode='r') as a_file:
-            list_dict = cls.from_json_string(a_file.read())
+        try:
+            with open(filename, mode='r') as a_file:
+                list_dict = cls.from_json_string(a_file.read())
 
-        instance = []
-        for i in list_dict:
-            new = cls.create(**i)
-            instance.append(new)
-        return (instance)
+            instance = []
+            for i in list_dict:
+                new = cls.create(**i)
+                instance.append(new)
+            return (instance)
+        except FileNotFoundError:
+            return ([])
