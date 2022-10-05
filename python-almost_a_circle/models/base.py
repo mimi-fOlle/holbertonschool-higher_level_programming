@@ -58,8 +58,9 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """ Return a list of instances """
-        filename = "{}.json".format(cls.__name__)
 
+        filename = "{}.json".format(cls.__name__)
+        list_dict = []
         with open(filename, mode='r') as a_file:
             if a_file is None:
                 return ([])
