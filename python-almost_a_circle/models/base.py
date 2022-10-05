@@ -34,7 +34,5 @@ class Base:
                 item = item.to_dictionary()
                 js_dt = json.loads(cls.to_json_string(item))
                 list_dt.append(js_dt)
-            with open(filename, mode='w') as a_file:
-                json.dump(list_dt, a_file)
-        else:
-            list_objs = []
+        with open(filename, mode='w') as a_file:
+            json.dump(list_dt, a_file)
