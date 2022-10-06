@@ -119,6 +119,15 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 2)
         self.assertEqual(s.y, 3)
 
+    def test_save_to_file(self):
+        """Test of Square.save_to_file(None) in Square exists"""
+        Square.to_json_string(None)
+        self.assertTrue(os.path.isfile('Square.json'))
+        err = ("save_to_file() missing 1 required positional argument: " +
+               "'list_objs'")
+        with self.assertRaises(TypeError) as i:
+            Square.save_to_file()
+        self.assertEqual(err, str(i.exception))
 
 if __name__ == "__main__":
     unittest.main()
