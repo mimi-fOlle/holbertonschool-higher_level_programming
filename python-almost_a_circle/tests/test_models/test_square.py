@@ -121,7 +121,7 @@ class TestSquare(unittest.TestCase):
 
     def test_save_to_file(self):
         """Test of Square.save_to_file(None) in Square exists"""
-        Square.to_json_string(None)
+        Square.save_to_file(None)
         self.assertTrue(os.path.isfile('Square.json'))
         err = ("save_to_file() missing 1 required positional argument: " +
                "'list_objs'")
