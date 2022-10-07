@@ -155,10 +155,10 @@ class TestSquare(unittest.TestCase):
         '''
             Testing saving a file into json format sending None
         '''
-        try:
-            os.remove("Square.json")
-        except:
-            pass
+#        try:
+#            os.remove("Square.json")
+#        except:
+#            pass
         r1 = Square(5, 0, 0, 346)
         Square.save_to_file(None)
 
@@ -166,6 +166,7 @@ class TestSquare(unittest.TestCase):
             content = file.read()
 
         self.assertEqual("[]", content)
+        os.remove("Square.json")
 
     def test_save_to_file_type(self):
         '''
