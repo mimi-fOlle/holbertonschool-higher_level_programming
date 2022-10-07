@@ -38,6 +38,9 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             Square(1, 2, -3)
 
+        with self.assertRaises(ValueError):
+            Square(0)
+
     def test_dictionary(self):
         s1 = Square(10, 2, 1, 1)
         s1_dict = s1.to_dictionary()
