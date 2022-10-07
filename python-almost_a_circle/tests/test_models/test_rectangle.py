@@ -6,6 +6,7 @@ import io
 from models.rectangle import Rectangle
 import json
 import os
+import sys
 
 class TestRectangle(unittest.TestCase):
     "Unit test suite for Rectangle class"
@@ -121,12 +122,64 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(to_test.x, 0)
         self.assertEqual(to_test.y, 0)
 
+    def test_save_to_file(self):
+        '''
+            Testing saving a file into json format
+        '''
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        r1 = Rectangle(5, 10, 0, 0, 346)
+        Rectangle.save_to_file([r1])
+
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+        t = [{"x": 0, "y": 0, "id": 346, "height": 10, "width": 5}]
+        self.assertEqual(t, json.loads(content))
+
+    def test_save_to_file_no_iter(self):
+        '''
+            Sending a non iterable to the function
+        '''
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file(self)
+
     def test_save_to_file_None(self):
-        """Test of Rectangle.save_to_file(None) in Rectangle exists"""
+        '''
+            Testing saving a file into json format sending None
+        '''
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        r1 = Rectangle(5, 10, 0, 0, 346)
         Rectangle.save_to_file(None)
-        with open("Rectangle.json", 'r') as file:
-            self.assertEqual(json.loads(file.read()), json.loads('[]'))
-        os.remove("Rectangle.json")
+
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+
+        self.assertEqual("[]", content)
+
+    def test_save_to_file_type(self):
+        '''
+            Testing saving a file into json format sending None
+        '''
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
+        r1 = Rectangle(5, 10, 0, 0, 346)
+        Rectangle.save_to_file(None)
+
+        with open("Rectangle.json", "r") as file:
+            content = file.read()
+
+        self.assertEqual(str, type(content))
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
 
 if __name__ == "__main__":
     unittest.main()
