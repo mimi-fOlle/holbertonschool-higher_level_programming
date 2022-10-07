@@ -7,6 +7,7 @@ import os
 from models.square import Square
 from models.base import Base
 import json
+import sys
 
 class TestSquare(unittest.TestCase):
     """Testing Square"""
@@ -127,18 +128,64 @@ class TestSquare(unittest.TestCase):
         s = Square(10, 9, 8, 7)
         self.assertEqual(dict, s.to_dictionary())
 
-    def test_save_to_file_none(self):
-        """Test that `save_to_file()` instance used to directly
-        serialize and write to file and delete the file
-        """
-        Base._Base__nb_object = 0
-        s1 = Square(9, 2, 7)
-        s2 = Square(2)
+    def test_save_to_file(self):
+        '''
+            Testing saving a file into json format
+        '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file([r1])
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+        t = [{"id": 346, "x": 0, "size": 5, "y": 0}]
+        self.assertEqual(t, json.loads(content))
+
+    def test_save_to_file_no_iter(self):
+        '''
+            Sending a non iterable to the function
+        '''
+        with self.assertRaises(TypeError):
+            Square.save_to_file(self)
+
+    def test_save_to_file_None(self):
+        '''
+            Testing saving a file into json format sending None
+        '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
         Square.save_to_file(None)
-        self.assertIs(os.path.exists("Square.json"), True)
-        with open("Square.json", 'r') as file:
-            self.assertEqual(json.loads(file.read()), json.loads('[]'))
-        os.remove("Square.json")   
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+
+        self.assertEqual("[]", content)
+
+    def test_save_to_file_type(self):
+        '''
+            Testing saving a file into json format and testing the type
+        '''
+        try:
+            os.remove("Square.json")
+        except:
+            pass
+        r1 = Square(5, 0, 0, 346)
+        Square.save_to_file([r1])
+
+        with open("Square.json", "r") as file:
+            content = file.read()
+
+        self.assertEqual(str, type(content))
+        try:
+            os.remove("Square.json")
+        except:
+            pass
 
 if __name__ == "__main__":
     unittest.main()
