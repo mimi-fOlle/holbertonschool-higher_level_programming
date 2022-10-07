@@ -5,7 +5,8 @@ from unittest import mock
 import io
 import os
 from models.square import Square
-
+from models.base import Base
+import json
 
 class TestSquare(unittest.TestCase):
     """Testing Square"""
@@ -119,15 +120,25 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 2)
         self.assertEqual(s.y, 3)
 
-    def test_save_to_file(self):
-        """Test of Square.save_to_file(None) in Square exists"""
+
+    def test_to_dictionary(self):
+        """ Test of to_dictionary() in Square exists """
+        dict = {'id': 7, 'size': 10, 'x': 9, 'y': 8}
+        s = Square(10, 9, 8, 7)
+        self.assertEqual(dict, s.to_dictionary())
+
+    def test_save_to_file_none(self):
+        """Test that `save_to_file()` instance used to directly
+        serialize and write to file and delete the file
+        """
+        Base._Base__nb_object = 0
+        s1 = Square(9, 2, 7)
+        s2 = Square(2)
         Square.save_to_file(None)
-        self.assertTrue(os.path.isfile('Square.json'))
-        err = ("save_to_file() missing 1 required positional argument: " +
-               "'list_objs'")
-        with self.assertRaises(TypeError) as i:
-            Square.save_to_file()
-        self.assertEqual(err, str(i.exception))
+        self.assertIs(os.path.exists("Square.json"), True)
+        with open("Square.json", 'r') as file:
+            self.assertEqual(json.loads(file.read()), json.loads('[]'))
+        os.remove("Square.json")   
 
 if __name__ == "__main__":
     unittest.main()
