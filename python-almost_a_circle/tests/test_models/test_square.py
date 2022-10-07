@@ -5,9 +5,7 @@ from unittest import mock
 import io
 import os
 from models.square import Square
-from models.base import Base
-import json
-import sys
+from models.rectangle import Rectangle
 
 class TestSquare(unittest.TestCase):
     """Testing Square"""
@@ -121,72 +119,48 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s.x, 2)
         self.assertEqual(s.y, 3)
 
+    def test_load_from_file(self):
+        """Test of Square.load_from_file(None) in Square exists"""
+        Square.save_to_file(None)
+        self.assertTrue(os.path.isfile('Square.json'))
 
-    def test_to_dictionary(self):
-        """ Test of to_dictionary() in Square exists """
-        dict = {'id': 7, 'size': 10, 'x': 9, 'y': 8}
-        s = Square(10, 9, 8, 7)
-        self.assertEqual(dict, s.to_dictionary())
+        load_file = Square.load_from_file()
+        self.assertEqual(len(load_file), 0)
 
     def test_save_to_file(self):
-        '''
-            Testing saving a file into json format
-        '''
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-        r1 = Square(5, 0, 0, 346)
-        Square.save_to_file([r1])
+        """Test of Square.save_to_file(None) in Square exists"""
+        Square.save_to_file([Square(1)])
+        with open("Square.json", mode="r") as read_file:
+            s = read_file.read()
+            self.assertEqual(len(s), 39)
 
-        with open("Square.json", "r") as file:
-            content = file.read()
-        t = [{"id": 346, "x": 0, "size": 5, "y": 0}]
-        self.assertEqual(t, json.loads(content))
+    def test_save_to_file_list_empty(self):
+        """Test of Square.save_to_file([]) in Square exists"""
+        Square.save_to_file([])
+        with open("Square.json", mode="r") as read_file:
+            s = read_file.read()
+            self.assertEqual(s, "[]")
 
-    def test_save_to_file_no_iter(self):
-        '''
-            Sending a non iterable to the function
-        '''
-        with self.assertRaises(TypeError):
-            Square.save_to_file(self)
-
-    def test_save_to_file_None(self):
-        '''
-            Testing saving a file into json format sending None
-        '''
-#        try:
-#            os.remove("Square.json")
-#        except:
-#            pass
-        r1 = Square(5, 0, 0, 346)
+    def test_save_to_file_empty(self):
+        """Test of Square.save_to_file([]) in Square exists"""
         Square.save_to_file(None)
-
-        with open("Square.json", "r") as file:
-            content = file.read()
-
-        self.assertEqual("[]", content)
+        with open("Square.json", mode="r") as read_file:
+            s = read_file.read()
+            self.assertEqual(len(s), 2)
         os.remove("Square.json")
 
-    def test_save_to_file_type(self):
-        '''
-            Testing saving a file into json format and testing the type
-        '''
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-        r1 = Square(5, 0, 0, 346)
-        Square.save_to_file([r1])
+    def test_save_to_file_none(self):
+        """Test of Square.save_to_file([]) in Square exists"""
+        with self.assertRaises(TypeError):
+            Square.save_to_file()
 
-        with open("Square.json", "r") as file:
-            content = file.read()
-
-        self.assertEqual(str, type(content))
-        try:
-            os.remove("Square.json")
-        except:
-            pass
+    def test_save_to_file_r(self):
+        """Test of Square.save_to_file(None) in Square exists"""
+        Rectangle.save_to_file([Rectangle(1, 2)])
+        with open("Square.json", mode="r") as read_file:
+            s = read_file.read()
+            self.assertEqual(len(s), 2)
+        os.remove("Square.json")
 
 if __name__ == "__main__":
     unittest.main()
