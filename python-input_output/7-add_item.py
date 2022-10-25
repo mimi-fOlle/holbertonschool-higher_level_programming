@@ -1,19 +1,21 @@
 #!/usr/bin/python3
-""" Module: 7-add_item (add all arguments to a list and save to a file) """
+"""JSON String function"""
 
 
 from sys import argv
 
 
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
 
-my_list = []
-filename = "add_item.json"
+file = "add_item.json"
 
-if filename is not None:
-    my_list = load_from_json_file(filename)
+try:
+    list = load_from_json_file(file)
+except Exception:
+    list = []
 
-for args in sys.argv[1:]:
-    my_list.append(args)
-    save_to_json_file(my_list, "add_item.json")
+for arg in argv[1:]:
+    list.append(arg)
+
+save_to_json_file(list, file)
