@@ -18,7 +18,11 @@ if __name__ == "__main__":
                 "ORDER BY cities.id".format(argv[4]))
     query_rows = cur.fetchall()
 
+    city = ""
     for rows in query_rows:
-        print(rows)
+        for ele in rows:
+            city += ele + ", "
+    print(city[:-2])
+
     cur.close()
     db.close()
