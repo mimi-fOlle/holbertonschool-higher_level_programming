@@ -8,7 +8,7 @@ request.get(process.argv[2], function (error, response, body) {
   if (!error) {
     for (const x of film) {
       for (const role of x.characters) {
-        if (role === 'https://swapi-api.hbtn.io/api/people/18/') {
+        if (role.slice(-4) === '/18/') {
           count++;
         }
       }
